@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { cn } from "@/lib/utils";
-import { fontBody } from "./components/fonts";
+import { fontBody } from "./fonts/index";
+
 import "./globals.css";
+import { ProviderWrapper } from "@/providers";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,7 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn("antialiased", fontBody.variable)}>{children}</body>
+      <body className={cn("antialiased", fontBody.variable)}>
+        <ProviderWrapper>{children}</ProviderWrapper>
+      </body>
     </html>
   );
 }
